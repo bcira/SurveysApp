@@ -1,0 +1,14 @@
+﻿@using SurveysApp.Models
+
+@model Survey
+
+<h1>Create Survey</h1>
+
+<form asp-action="Create">
+    <div>
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" />
+    </div>
+
+    <button type="submit">Create</button>
+</form> 

@@ -1,0 +1,24 @@
+﻿@model SendSurveyLinkViewModel
+
+<h2>Send Survey Link</h2>
+
+<form asp-action="SendSurveyLink" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="SurveyId"></label>
+        <select asp-for="SurveyId" asp-items="@(new SelectList(Model.Surveys, "Id", "Title"))" class="form-control">
+            <option value="">-- Select a survey --</option>
+        </select>
+        <span asp-validation-for="SurveyId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedUserIds"></label>
+        <select asp-for="SelectedUserIds" asp-items="@(new SelectList(Model.Users, "Id", "UserName"))" multiple class="form-control">
+        </select>
+        <span asp-validation-for="SelectedUserIds" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Survey Link</button>
+</form>
